@@ -1,0 +1,38 @@
+     1                                 %line 1+1 VibhorAggarwal_2021111.asm
+     2                                 [segment .data]
+     3 00000000 00000000               x dd 0
+     4 00000004 00000000               n dd 0
+     5 00000008 00<rept>               s times 100 db 0
+     6 0000006C 256400                 fmt db "%d" , 0
+     7 0000006F 257300                 fmt1 db "%s" , 0
+     8 00000072 25640A00               fmt2 db "%d" , 0x0a, 0
+     9 00000076 25730A00               fmt3 db "%s" , 0x0a, 0
+    10                                 
+    11                                 [segment .text]
+    12                                 [global main]
+    13                                 [extern scanf]
+    14                                 %line 12+0 VibhorAggarwal_2021111.asm
+    15                                 [extern printf]
+    16                                 %line 13+1 VibhorAggarwal_2021111.asm
+    17                                 main :
+    18 00000000 55                      push rbp
+    19 00000001 4889E5                  mov rbp , rsp
+    20 00000004 488D3C25[00000000]      lea rdi , [fmt]
+    21 0000000C 488D3425[00000000]      lea rsi, [x]
+    22 00000014 31C0                    xor eax , eax
+    23 00000016 E8(F6FFFFFF)            call scanf
+    24 0000001B 890425[00000000]        mov [n] , eax
+    25 00000022 488D3C25[00000000]      lea rdi , [fmt1]
+    26 0000002A 488D3425[00000000]      lea rsi , [s]
+    27 00000032 31C0                    xor eax , eax
+    28 00000034 E8(F6FFFFFF)            call scanf
+    29 00000039 488D3C25[00000000]      lea rdi , [fmt2]
+    30 00000041 488B3425[00000000]      mov rsi , [x]
+    31 00000049 31C0                    xor eax , eax
+    32 0000004B E8(F6FFFFFF)            call printf
+    33 00000050 488D3C25[00000000]      lea rdi , [fmt3]
+    34 00000058 488D3425[00000000]      lea rsi , [s]
+    35 00000060 31C0                    xor eax , eax
+    36 00000062 E8(F6FFFFFF)            call printf
+    37 00000067 C9                      leave
+    38 00000068 C3                      ret

@@ -1,0 +1,19 @@
+
+diff -r linux-6.0/Makefile original/linux-6.0/Makefile
+1104c1104
+< core-y			+= kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ kernel_2d_memcpy/
+--
+
+diff -r linux-6.0/arch/x86/entry/syscalls/syscall_64.tbl original/linux-6.0/arch/x86/entry/syscalls/syscall_64.tbl
+375d374
+< 451	common	kernel_2d_memcpy	sys_kernel_2d_memcpy
+
+--
+
+Only in linux-6.0: kernel_2d_memcpy
+ls linux-6.0/kernel_2d_memcpy/ -l
+-rw-r--r-- 1 root root     28 Nov 24 22:34 Makefile
+-rw-r--r-- 1 root root    148 Nov 24 22:50 built-in.a
+-rw-r--r-- 1 root root    608 Nov 24 22:36 kernel_2d_memcpy.c
+-rw-r--r-- 1 root root 148960 Nov 24 22:50 kernel_2d_memcpy.o
+-rw-r--r-- 1 root root      0 Nov 24 22:50 modules.order
